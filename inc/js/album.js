@@ -16,8 +16,8 @@ Array.min = function( array ){
 };
 function fMap(strAlbumName) {
 	var arrBubbles = [], arrLat = [], arrLon = [], arrMedia = [], intMediumCount = 0;
-	var themap = jQuery('<div id="divMap"></div>').css({'width':'100%','height':'500px'}).insertBefore('#divAlbum'); // create a div to host the map
-	var mapstraction = new mxn.Mapstraction('divMap', strMapEngine); // initialise the map with your choice of API
+	var themap = jQuery('<div id="map"></div>').css({'width':'100%','height':'500px'}).insertBefore('#divAlbum'); // create a div to host the map
+	var mapstraction = new mxn.Mapstraction('map', strMapEngine); // initialise the map with your choice of API
 	
 	jQuery.ajax({
 		type: "GET",

@@ -15,20 +15,26 @@
 			<head>
 				<meta charset="utf-8" />
 				<title>History - Photo Album</title>
-				<script src="../inc/js/jquery-1.7.2.min.js"></script>
+				<script src="../inc/js/jquery-1.10.2.min.js"></script>
 				<!-- Photo -->
 				<script src="../inc/js/jquery.colorbox-min.js"></script>
 				<link  href="../inc/css/colorbox.css" rel="stylesheet" media="screen" />
 				<!-- Map -->
-				<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-				<script>strMapEngine = 'googlev3';</script>
+				
+				<script>strMapEngine = 'leaflet';</script>
 				<script src="../inc/js/mxn-min.js"></script>
 				<script src="../inc/js/mxn.core-min.js"></script>
-				<script src="../inc/js/mxn.googlev3.core-min.js"></script>
+				<script src="../inc/js/mxn.leaflet.core-min.js"></script>  
+				<script src="../inc/js/leaflet.js"></script>
 				<!--script src="../inc/js/mapstraction.js"></script-->
 				<script src="../inc/js/global.js"></script>
 				<script src="../inc/js/album.js"></script>
-
+                <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+                <!--[if lte IE 8]>
+                    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+                <![endif]-->
+                
+                
 				<style>
 					<![CDATA[
 					#divAlbum, #divMapBubble, #divToolbox { float: left; font-family:verdana; font-size:11px; font-weight:bold; }
@@ -61,6 +67,7 @@
 						border: 5px solid white;
 						border-width: 5px 5px 20px;
 					}
+					html, body { padding: 0; margin: 0; }
 					]]>
 				</style>
 			</head>
@@ -80,7 +87,8 @@
 					</div>
 				</xsl:if>
 				<div style="clear: left;"></div>
-
+                
+			
 				<div id="divAlbum">
 					<ul>
 						<xsl:for-each select="album/photo|album/video">
